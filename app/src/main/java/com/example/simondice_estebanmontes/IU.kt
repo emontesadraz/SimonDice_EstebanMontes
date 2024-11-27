@@ -9,11 +9,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.simondice_estebanmontes.ui.theme.Amarillo
 import com.example.simondice_estebanmontes.ui.theme.Azul
 import com.example.simondice_estebanmontes.ui.theme.Rojo
+import com.example.simondice_estebanmontes.ui.theme.SimonDice_EstebanMontesTheme
 import com.example.simondice_estebanmontes.ui.theme.Verde
 
 
@@ -89,4 +91,11 @@ fun BotonInteractivo(color: Color, esActivo: Boolean, viewModel: ControladorJueg
         shape = RoundedCornerShape(10.dp),
         colors = ButtonDefaults.buttonColors(containerColor = colorAnimado)
     ) {}
+}
+@Preview(showBackground = true)
+@Composable
+fun InterfazJuegoPreview() {
+    SimonDice_EstebanMontesTheme {
+        InterfazJuego()
+    }
 }

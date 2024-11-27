@@ -1,47 +1,20 @@
-package com.example.simondice_estebanmontes
+package com.example.simondice
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.simondice_estebanmontes.ui.theme.SimonDice_EstebanMontesTheme
+import com.example.simondice_estebanmontes.InterfazJuego
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+        // Usamos el setContent para especificar la UI inicial
         setContent {
-            SimonDice_EstebanMontesTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            // Aquí es donde se inicializa tu UI
+            InterfazJuego()  // Llamas a tu Composable principal
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SimonDice_EstebanMontesTheme {
-        Greeting("Android")
-    }
-}
