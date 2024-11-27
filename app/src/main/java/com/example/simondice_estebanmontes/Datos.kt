@@ -1,18 +1,25 @@
-package com.example.simondice_estebanmontes
+package com.example.simondice
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 
-data class Datos(var puntuacion: Int)
+data class DatosPuntuacion(var total: Int)
 
-class RepositorioPuntuacion {
-    private val _puntuacion = MutableStateFlow(Datos(0))
-    val puntuacion: Flow<Datos> get() = _puntuacion
+class GestorPuntos {
+    private val flujoPuntos = MutableStateFlow(DatosPuntuacion(0))
+    val puntos: Flow<DatosPuntuacion> get() = flujoPuntos
 
     /**
-     * Incrementa la puntuación
+     * Aumenta los puntos actuales en uno.
      */
-    fun aumentarPuntuacion() {
-        _puntuacion.value = Datos(_puntuacion.value.puntuacion + 1)
+    fun aumentarPuntos() {
+        flujoPuntos.value = flujoPuntos.value.copy(total = flujoPuntos.value.total + 1)
+    }
+
+    /**
+     * Reinicia los puntos a cero.
+     */
+    fun reiniciarPuntos() {
+        flujoPuntos.value = DatosPuntuacion(0)
     }
 }
